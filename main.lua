@@ -37,6 +37,7 @@ wifi.startsmart(nil, function() end)
 
 -- Configure the AP
 wifi.ap.config({ssid="KX3ESP", pwd="remote"})
+wifi.ap.setip({ip="10.1.1.1",netmask="255.255.255.0"})
 
 -- Configure UART
 uart.setup(0,38400,8,0,1,0)
@@ -46,7 +47,7 @@ uart.on("data",0,toNet,0)
 
 -- Open server socket
 ss = net.createServer(net.TCP,60)
-ss:listen(2001, newConn)
+ss:listen(7373, newConn)
 
 -- Begin discovery broadcast
 us = net.createConnection(net.UDP,0)
