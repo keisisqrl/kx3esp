@@ -51,7 +51,7 @@ ss:listen(7373, newConn)
 
 -- Begin discovery broadcast
 us = net.createConnection(net.UDP,0)
-us:connect(5000,"255.255.255.255")
+us:connect(7373,"255.255.255.255")
 tmr.alarm(3, 15000, 1, function()
     us:send("KX3ESP is here!", function(_) end)
 end)
